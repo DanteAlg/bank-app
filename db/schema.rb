@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_20_233022) do
+ActiveRecord::Schema.define(version: 2020_01_20_234108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,17 @@ ActiveRecord::Schema.define(version: 2020_01_20_233022) do
     t.index ["user_id"], name: "index_accounts_on_user_id"
   end
 
+  create_table "transfers", force: :cascade do |t|
+    t.bigint "source_account_id"
+    t.bigint "destination_account_id"
+    t.integer "amount"
+    t.string "currency"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["destination_account_id"], name: "index_transfers_on_destination_account_id"
+    t.index ["source_account_id"], name: "index_transfers_on_source_account_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
     t.string "password_digest"
@@ -30,4 +41,6 @@ ActiveRecord::Schema.define(version: 2020_01_20_233022) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "transfers", "accounts", column: "destination_account_id"
+  add_foreign_key "transfers", "accounts", column: "source_account_id"
 end
