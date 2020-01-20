@@ -1,0 +1,15 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: bank_development
+  pool: 2
+  username: your_username
+  password: your_password
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: bank_test
+  pool: 2
+  username: your_username
+  password: your_password
