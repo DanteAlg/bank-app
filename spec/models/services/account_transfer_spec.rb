@@ -9,7 +9,7 @@ describe AccountTransfer do
 
 		context 'when source account have balance' do
 			let!(:transaction) do
-				FactoryBot.create(:financial_transaction, account: source_account, amount: 1000)
+				FactoryBot.create(:financial_transaction, account: source_account, amount_cents: 1000)
 			end
 
 			it 'create transfer' do
@@ -35,7 +35,7 @@ describe AccountTransfer do
 
 		context 'when have wrong params' do
 			let!(:transaction) do
-				FactoryBot.create(:financial_transaction, account: source_account, amount: 1000)
+				FactoryBot.create(:financial_transaction, account: source_account, amount_cents: 1000)
 			end
 
 			it 'same account raise ActiveRecord::RecordInvalid' do

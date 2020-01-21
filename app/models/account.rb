@@ -6,6 +6,6 @@ class Account < ActiveRecord::Base
   validates_presence_of :number, :user
 
   def balance_cents
-    financial_transactions.sum(:amount)
+    financial_transactions.sum(:amount_cents)
   end
 end

@@ -14,7 +14,7 @@ describe Transfer do
 
 		include_examples 'must be present', 'source_account'
 		include_examples 'must be present', 'destination_account'
-		include_examples 'must be present', 'amount'
+		include_examples 'must be present', 'amount_cents'
 		include_examples 'must be present', 'currency'
 
 		describe '#diferent_accounts_transfer' do

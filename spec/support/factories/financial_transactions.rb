@@ -3,7 +3,7 @@ FactoryBot.define do
     account
     transfer { nil }
     kind { 'credit' }
-    amount { 10000 }
+    amount_cents { 10000 }
     currency { 'BRL' }
    end
 end

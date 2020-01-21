@@ -32,14 +32,14 @@ class AccountTransfer
 
 	def build_transfer
 		Transfer.new(
-			currency: currency, amount: amount,
+			currency: currency, amount_cents: amount,
 			source_account: source_account, destination_account: destination_account
 		)
 	end
 
 	def create_financial_transaction(kind, account)
 		ft = FinancialTransaction.new(kind: kind, account: account, currency: currency, transfer: transfer)
-		ft.amount = (ft.debit? ? -amount : amount)
+		ft.amount_cents = (ft.debit? ? -amount : amount)
 		ft.save!
 	end
 end

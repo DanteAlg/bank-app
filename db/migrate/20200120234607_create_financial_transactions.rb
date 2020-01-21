@@ -4,7 +4,7 @@ class CreateFinancialTransactions < ActiveRecord::Migration[6.0]
       t.references :account
       t.references :transfer
       t.string :kind
-      t.integer :amount
+      t.integer :amount_cents
       t.string :currency
       t.timestamps null: false
     end

@@ -18,11 +18,11 @@ describe API::AccountsController, type: :controller do
 
 		context 'when logged user' do
 			let!(:transaction_1) do
-				FactoryBot.create(:financial_transaction, account: account, amount: 1000,
+				FactoryBot.create(:financial_transaction, account: account, amount_cents: 1000,
 					kind: FinancialTransaction::KINDS[:credit])
 			end
 			let!(:transaction_2) do
-				FactoryBot.create(:financial_transaction, account: account, amount: -123,
+				FactoryBot.create(:financial_transaction, account: account, amount_cents: -123,
 					kind: FinancialTransaction::KINDS[:debit])
 			end
 
@@ -76,7 +76,7 @@ describe API::AccountsController, type: :controller do
 
 			describe 'with positive balance' do
 				let!(:transaction_1) do
-					FactoryBot.create(:financial_transaction, account: source_account, amount: 1000,
+					FactoryBot.create(:financial_transaction, account: source_account, amount_cents: 1000,
 						kind: FinancialTransaction::KINDS[:credit])
 				end
 

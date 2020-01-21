@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 2020_01_20_234607) do
     t.bigint "account_id"
     t.bigint "transfer_id"
     t.string "kind"
-    t.integer "amount"
+    t.integer "amount_cents"
     t.string "currency"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_01_20_234607) do
   create_table "transfers", force: :cascade do |t|
     t.bigint "source_account_id"
     t.bigint "destination_account_id"
-    t.integer "amount"
+    t.integer "amount_cents"
     t.string "currency"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

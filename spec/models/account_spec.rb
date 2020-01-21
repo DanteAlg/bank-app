@@ -19,15 +19,15 @@ describe Account do
 	describe '#balance_cents' do
 		let(:account) { FactoryBot.build(:account) }
 		let!(:transaction_1) do
-			FactoryBot.create(:financial_transaction, account: account, amount: 1000,
+			FactoryBot.create(:financial_transaction, account: account, amount_cents: 1000,
 				kind: FinancialTransaction::KINDS[:credit])
 		end
 		let!(:transaction_2) do
-			FactoryBot.create(:financial_transaction, account: account, amount: 3000,
+			FactoryBot.create(:financial_transaction, account: account, amount_cents: 3000,
 				kind: FinancialTransaction::KINDS[:credit])
 		end
 		let!(:transaction_3) do
-			FactoryBot.create(:financial_transaction, account: account, amount: -2050,
+			FactoryBot.create(:financial_transaction, account: account, amount_cents: -2050,
 				kind: FinancialTransaction::KINDS[:debit])
 		end
 

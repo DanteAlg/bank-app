@@ -15,18 +15,18 @@ describe FinancialTransaction do
 		include_examples 'must be present', 'currency'
 		include_examples 'must be present', 'account'
 
-		it 'validate amount greater then 0' do
+		it 'validate amount_cents greater then 0' do
 			resource.kind = FinancialTransaction::KINDS[:debit]
-			resource.amount = 1
+			resource.amount_cents = 1
 			resource.valid?
-			expect(resource.errors.messages[:amount]).to eq(["must be less than 0"])
+			expect(resource.errors.messages[:amount_cents]).to eq(["must be less than 0"])
 		end
 
-		it 'validate amount less then 0' do
+		it 'validate amount_cents less then 0' do
 			resource.kind = FinancialTransaction::KINDS[:credit]
-			resource.amount = -1
+			resource.amount_cents = -1
 			resource.valid?
-			expect(resource.errors.messages[:amount]).to eq(["must be greater than 0"])
+			expect(resource.errors.messages[:amount_cents]).to eq(["must be greater than 0"])
 		end
 	end	
 end

@@ -10,7 +10,7 @@ require_relative '../config/environment'
 	puts "Account created: #{account.id}"
 
 	puts "Create Financial transaction"
-	balance = FinancialTransaction.create(account: user.account, amount: '100', 
+	balance = FinancialTransaction.create(account: user.account, amount_cents: '100', 
 																					kind: 'credit', currency: 'BRL')
-	puts "Balance added: #{balance.amount}"
+	puts "Balance added: #{balance.amount_cents}"
 end
