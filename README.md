@@ -16,14 +16,16 @@ Simple [corneal](https://github.com/thebrianemory/corneal) app to make transfers
 
 Run `$ tux` to interact with your application in console
 
-
 ## Tests
 
 `$ rspec`
 
 ## Routes 
 
-* Autenticação via basic (username, password)
-* Rota para visualizar saldo de uma conta GET `/api/accounts/:id/balance` 
-* Rota para transferir dinheiro para outra conta POST `/api/accounts/:id/transfer/:destination_id` 
+* Basic authentication (username, password)
+* Route to view account balance GET `/api/accounts/:id/balance` 
+* Route to transfer money to another account POST `/api/accounts/:id/transfer/:destination_id` 
 
+## Seed
+
+At the root of the project do `$ ruby tasks/seed.rb`
