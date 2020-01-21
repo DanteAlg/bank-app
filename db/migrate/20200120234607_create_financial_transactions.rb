@@ -1,6 +1,6 @@
 class CreateFinancialTransactions < ActiveRecord::Migration[6.0]
   def change
-  	create_table :financial_transactions do |t|
+    create_table :financial_transactions do |t|
       t.references :account
       t.references :transfer
       t.string :kind

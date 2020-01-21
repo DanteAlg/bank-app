@@ -1,5 +1,5 @@
 class Account < ActiveRecord::Base
-	has_many :financial_transactions
+  has_many :financial_transactions
 
   belongs_to :user
 
