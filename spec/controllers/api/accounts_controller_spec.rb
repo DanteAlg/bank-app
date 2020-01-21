@@ -1,9 +1,5 @@
 require_relative "../../spec_helper"
 
-def app
-  API::AccountsController
-end
-
 describe API::AccountsController, type: :controller do
 	let(:json_response) { JSON.parse(last_response.body) }
 

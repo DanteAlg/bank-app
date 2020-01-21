@@ -24,7 +24,7 @@ RSpec.configure do |config|
     DatabaseCleaner.clean
   end
 
-  config.order = 'default'
+  config.order = 'rand'
 end
 
 def app
