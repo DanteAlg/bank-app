@@ -20,6 +20,8 @@ class AccountTransfer
 			create_financial_transaction(FinancialTransaction::KINDS[:debit], source_account)
 			create_financial_transaction(FinancialTransaction::KINDS[:credit], destination_account)	
 		end
+
+		transfer
 	end
 
 	private

@@ -10,7 +10,7 @@ module API
 
 		use Rack::Auth::Basic, "Protected Area" do |username, password|
 		  user = User.find_by(username: username)
-		  password == user.password
+		  user.authenticate(password)
 		end
 
 		namespace '/api', provides: [:json] do
@@ -24,10 +24,16 @@ module API
 			post '/accounts/:id/transfer/:destination_id' do
 				source_account = Account.find(params[:id])
 				destination_account = Account.find(params[:destination_id])
+				parsed_body =  JSON.parse(request.body.read)
 
-				AccountTransfer.new(source_account, destination_account, params[:amount].to_i).execute
+				transfer = AccountTransfer.new(source_account, destination_account, parsed_body['amount'].to_i).execute
+
+				json(transfer)
 			rescue ActiveRecord::RecordNotFound
 				render_missing_account
+			rescue ActiveRecord::RecordInvalid => e
+				status 422
+				json({ error: e.message })
 			rescue NotEnoughAccountBalance
 				status 422
 				json({ error: 'Insufficient bank balance' })

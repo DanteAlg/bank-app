@@ -24,6 +24,6 @@ Run `$ tux` to interact with your application in console
 ## Routes 
 
 * Autenticação via basic (username, password)
-* Rota para visualizar saldo de uma conta `/api/accounts/:id/balance` 
-* Rota para transferir dinheiro para outra conta `/api/accounts/:id/transfer/:destination_id` 
+* Rota para visualizar saldo de uma conta GET `/api/accounts/:id/balance` 
+* Rota para transferir dinheiro para outra conta POST `/api/accounts/:id/transfer/:destination_id` 
 

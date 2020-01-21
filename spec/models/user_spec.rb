@@ -14,20 +14,4 @@ describe User do
 			end
 		end
 	end
-
-	describe '#password=' do
-		let(:user) { FactoryBot.build(:user) }
-
-		it 'must fill password_digest' do
-			expect { user.password = 'foobar' }.to change{ user.password_digest }
-		end
-	end
-
-	describe '#password' do
-		let!(:user) { FactoryBot.create(:user, password_digest: BCrypt::Password.create('123456')) }
-
-		it 'must match with password string' do
-			expect(user.password).to eq('123456')
-		end
-	end
 end

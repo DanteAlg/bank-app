@@ -60,7 +60,8 @@ describe API::AccountsController, type: :controller do
 		let(:user) { source_account.user }
 
 		subject(:do_transfer) do
-			post("/api/accounts/#{source_account.id}/transfer/#{destination_account.id}", amount: 500)
+			post("/api/accounts/#{source_account.id}/transfer/#{destination_account.id}", 
+				{ amount: 500 }.to_json, {'CONTENT_TYPE' => 'application/json'})
 		end
 
 		context 'when user is not logged' do
