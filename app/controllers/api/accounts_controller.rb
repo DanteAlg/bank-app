@@ -10,7 +10,7 @@ module API
 
     use Rack::Auth::Basic, "Protected Area" do |username, password|
       user = User.find_by(username: username)
-      user.authenticate(password)
+      user && user.authenticate(password)
     end
 
     namespace '/api', provides: [:json] do
