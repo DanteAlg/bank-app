@@ -16,7 +16,7 @@ describe Account do
 		include_examples 'must be present', 'number'
 	end
 
-	describe '#balance' do
+	describe '#balance_cents' do
 		let(:account) { FactoryBot.build(:account) }
 		let!(:transaction_1) do
 			FactoryBot.create(:financial_transaction, account: account, amount: 1000,
@@ -32,7 +32,7 @@ describe Account do
 		end
 
 		it 'sum account financial transactions' do
-			expect(account.balance).to eq(1950)
+			expect(account.balance_cents).to eq(1950)
 		end
 	end
 end

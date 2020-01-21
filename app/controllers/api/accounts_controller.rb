@@ -16,7 +16,7 @@ module API
 		namespace '/api', provides: [:json] do
 			get '/accounts/:id/balance' do
 				account = Account.find(params[:id])
-				json({ balance: account.balance })
+				json({ balance: "R$ #{account.balance_cents.to_f/100}" })
 			rescue ActiveRecord::RecordNotFound
 				render_missing_account
 			end

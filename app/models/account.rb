@@ -5,7 +5,7 @@ class Account < ActiveRecord::Base
 
   validates_presence_of :number, :user
 
-  def balance
+  def balance_cents
     financial_transactions.sum(:amount)
   end
 end

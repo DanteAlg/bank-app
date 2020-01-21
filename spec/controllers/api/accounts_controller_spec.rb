@@ -35,7 +35,7 @@ describe API::AccountsController, type: :controller do
 
 			it 'get balance' do
 				get_balance
-				expect(json_response['balance']).to eq(877)
+				expect(json_response['balance']).to eq("R$ 8.77")
 			end
 
 			context 'when account do not exist' do
@@ -90,12 +90,12 @@ describe API::AccountsController, type: :controller do
 
 				it 'change source balance' do
 					do_transfer
-					expect(source_account.balance).to eq(500)
+					expect(source_account.balance_cents).to eq(500)
 				end
 
 				it 'change destination balance' do
 					do_transfer
-					expect(destination_account.balance).to eq(500)
+					expect(destination_account.balance_cents).to eq(500)
 				end
 			end
 

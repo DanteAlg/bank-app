@@ -27,7 +27,7 @@ class AccountTransfer
 	private
 
 	def validate_source_account_balance
-		raise NotEnoughAccountBalance if source_account.balance < amount
+		raise NotEnoughAccountBalance if source_account.balance_cents < amount
 	end
 
 	def build_transfer

@@ -18,12 +18,12 @@ describe AccountTransfer do
 
 			it 'debit from source account' do
 				execute_transfer
-				expect(source_account.balance).to eq(500)
+				expect(source_account.balance_cents).to eq(500)
 			end
 
 			it 'credit from destination account' do
 				execute_transfer
-				expect(destination_account.balance).to eq(500)
+				expect(destination_account.balance_cents).to eq(500)
 			end
 		end
 
