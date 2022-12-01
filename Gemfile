@@ -1,9 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'sinatra', '2.0.8.1'
+gem 'sinatra', '3.0.4'
 gem 'activerecord', '6.0.2.1', require: 'active_record'
 gem 'sinatra-activerecord', require: 'sinatra/activerecord'
-gem 'sinatra-contrib', '2.0.8.1', require: false
+gem 'sinatra-contrib', '3.0.4', require: false
 gem 'rake', '13.0.1'
 gem 'require_all', '3.0.0'
 gem 'pg', '1.2.2'
